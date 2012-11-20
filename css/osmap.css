@@ -1,0 +1,48 @@
+.recline-osmap {
+  overflow: hidden;
+}
+
+.osmap {
+  height: 500px;
+}
+
+/**********************************************************
+  * Editor
+  *********************************************************/
+
+.recline-osmap .editor {
+  float: right;
+  width: 200px;
+  padding-left: 0;
+  margin-left: 10px;
+}
+
+.recline-osmap .editor form {
+  padding-left: 4px;
+}
+
+.recline-osmap .editor select {
+  width: 100%;
+}
+
+.recline-osmap .editor .editor-options {
+  margin-top: 10px;
+  border-top: 1px solid gray;
+  padding: 5px 0;
+}
+
+.olControlAttribution {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: small;
+  background: rgba(255, 255, 255);
+  background: rgba(255, 255, 255, 0.5);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#88FFFFFF, endColorstr=#88FFFFFF);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#88FFFFFF, endColorstr=#88FFFFFF)";
+}
+
+.olControlAttribution * {
+  margin: 0;
+  padding: 0;
+}

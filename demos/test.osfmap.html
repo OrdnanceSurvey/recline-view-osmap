@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+
+    <!-- you do not have to use bootstrap but we use it by default -->
+    <link rel="stylesheet" href="../vendor/recline/vendor/bootstrap/2.0.2/css/bootstrap.css"/>
+    <!-- CSS for relevant view components - here we just have grid -->
+    <link rel="stylesheet" href="../vendor/recline/css/grid.css"/>
+
+    <link rel="stylesheet" href="../vendor/recline/css/slickgrid.css">
+
+    <!-- 3rd party dependencies -->
+    <script type="text/javascript" src="../vendor/recline/vendor/jquery/1.7.1/jquery.js"></script>
+    <script type="text/javascript" src="../vendor/recline/vendor/underscore/1.4.2/underscore.js"></script>
+    <script type="text/javascript" src="../vendor/recline/vendor/backbone/0.9.2/backbone.js"></script>
+    <script type="text/javascript" src="../vendor/recline/vendor/mustache/0.5.0-dev/mustache.js"></script>
+    <script type="text/javascript" src="../vendor/recline/vendor/bootstrap/2.0.2/bootstrap.js"></script>
+    <script type="text/javascript" src="../vendor/recline/vendor/slickgrid/2.0.1/jquery-ui-1.8.16.custom.min.js"></script>
+    <script type="text/javascript" src="../vendor/recline/vendor/slickgrid/2.0.1/jquery.event.drag-2.0.min.js"></script>
+    <script type="text/javascript" src="../vendor/recline/vendor/slickgrid/2.0.1/slick.grid.min.js"></script>
+
+    <!-- Recline -->
+    <script type="text/javascript" src="../vendor/recline/src/view.slickgrid.js"></script>
+    <script type="text/javascript" src="../vendor/recline/dist/recline.js"></script>
+
+
+    <!-- OS Map View deps -->
+    <link rel="stylesheet" href="../css/osmap.css">
+    <script type="text/javascript" src="../vendor/openlayers/2.12/OpenLayers.js"></script>
+    <script type="text/javascript" src="../src/view.osmap.js"></script>
+
+  </head>
+  <body>
+
+    <div id="mymap"></div>
+    <script type="text/javascript">
+
+      var data = [
+        {name:'Beddington Park', address:'Church Road', ward:'Beddington North', area:4039.859, perimeter:464.361, easting:529045.924, northing:165372.031},
+        {name:'Benhill Rec', address:'Benhill Road', ward:'Sutton Central', area:4106.085, perimeter:264.466, easting:526684.632, northing:164794.199},
+        {name:'Carshalton Park', address:'Ruskin Road', ward:'Carshalton Central', area:3613.636, perimeter:214.241, easting:528009.573, northing:164145.634},
+        {name:'Cheam Rec', address:'Tudor Close', ward:'Cheam', area:472.949, perimeter:108.399, easting:523875.051, northing:163959.938},
+        {name:'Collingwood Rec', address:'Collingwood Road', ward:'Sutton West', area:677.973, perimeter:160.886, easting:525212.291, northing:164714.052},
+        {name:'Corrigan Avenue Rec', address:'Corrigan Avenue', ward:'Carshalton South & Clockhouse', area:2030.604, perimeter:239.995, easting:528217.643, northing:160094.234},
+        {name:'Cuddington Rec', address:'St Claire Drive', ward:'Nonsuch', area:542.124, perimeter:131.832, easting:522523.247, northing:165147.789},
+        {name:'Dale Park', address:'Dale Park Avenue', ward:'The Wrythe', area:512.746, perimeter:100.362, easting:527836.489, northing:165809.453},
+        {name:'Dorchester Road Playing Field', address:'Dorchester Road', ward:'Worcester Park', area:1990.387, perimeter:187.476, easting:523303.829, northing:166081.489},
+        {name:'Hamilton Avenue Rec', address:'Hamilton Avenue', ward:'Stonecot', area:557.535, perimeter:117.715, easting:524703.7, northing:165423.267}
+      ];
+
+
+      var dataset = new recline.Model.Dataset({
+        records:data
+      });
+
+      var $el = $('#mymap');
+      var map = new recline.View.OSMap({
+        model:dataset,
+        state: {
+          oskey: '@OSKEY@',
+          autoZoom: true,
+          theme: '../vendor/openlayers/theme/dark/'
+        }
+      });
+      $el.append(map.el);
+      map.render();
+      map.show();
+
+    </script>
+
+  </body>
+
+
+</html>
